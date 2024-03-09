@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 1 | JavaScript</title>
+    <style>
+      table {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <h1 align="center">Data Pegawai</h1>
+      <thead bgcolor="khaki">
+        <th>Nama Pegawai</th>
+        <th>Jabatan</th>
+        <th>Status</th>
+        <th>Gaji Pokok</th>
+        <th>Tunjangan Jabatan</th>
+        <th>Bpjs</th>
+        <th>Tunjangan Keluarga</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="namaPegawai"></td>
+          <td id="jabatanPegawai"></td>
+          <td id="statusPegawai"></td>
+          <td id="gajiPokokPegawai"></td>
+          <td id="tunjanganJabatanPegawai"></td>
+          <td id="bpjsTKPegawai"></td>
+          <td id="tunjanganKeluargaPegawau"></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <th id="total" colspan="7"></th>
+      </tfoot>
+    </table>
+  </body>
+
+  <script>
+    let pegawai = "Ridwan";
+    let jabatan = "Manager";
+    let status = "Menikah";
+
+    if (jabatan == "Manager") {
+      gajiPokok = 15000000;
+    } else if (jabatan == "Asisten Manager") {
+      gajiPokok = 10000000;
+    } else if (jabatan == "Staff") {
+      gajiPokok = 5000000;
+    } else {
+      gajiPokok = 0;
+    }
+
+    let tunjanganJabatan = 0.15 * gajiPokok;
+    let bpjsTK = 0.1 * gajiPokok;
+
+    let tunjanganKeluarga = status == "Menikah" ? 0.2 * gajiPokok : 0;
+
+    let totalGaji = gajiPokok + tunjanganJabatan + bpjsTK + tunjanganKeluarga;
+
+    document.getElementById("namaPegawai").innerHTML = pegawai;
+    document.getElementById("jabatanPegawai").innerHTML = jabatan;
+    document.getElementById("statusPegawai").innerHTML = status;
+    document.getElementById("gajiPokokPegawai").innerHTML = "Rp." + gajiPokok;
+    document.getElementById("tunjanganJabatanPegawai").innerHTML = "Rp." + tunjanganJabatan;
+    document.getElementById("bpjsTKPegawai").innerHTML = "Rp." + bpjsTK;
+    document.getElementById("tunjanganKeluargaPegawau").innerHTML = "Rp." + tunjanganKeluarga;
+    document.getElementById("total").innerHTML = "Total Gaji : Rp. " + totalGaji;
+  </script>
+</html>
